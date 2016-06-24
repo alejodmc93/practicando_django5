@@ -1,0 +1,40 @@
+<!doctype html>
+<html lag="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Lista Restaurantes</title>
+</head>
+<body>
+
+	<h1>Lista Restaurantes</h1>
+	<form>
+	<ul>
+		<table border = "9" >	
+		{% for restaurate in object_list %}
+			<tr>
+			<td><b>Nombre :</b>{{restaurate.nombre}}    </td>
+			<td><b>Ubicacion :</b>{{restaurate.ubicacion}}    </td>
+			<td><b>Telefono :</b>{{restaurate.telefono}}    </td>
+			<td>
+			<a href = "{% url 'restaurantes:eliminar_restaurante' restaurate.id %}" >delete
+			</a>
+			</td>
+			
+			<td>
+			
+			<a href="{% url 'restaurantes:actualizar_restaurante' restaurate.id %}">actualizar</a>
+
+
+			
+			</td>
+			</tr>
+		{% endfor %}
+		</table>
+			
+			<a href="{% url 'restaurantes:registrar_restaurante'%} {{restaurante.id}}">agregar</a>
+
+			
+	</ul>
+	</form>	
+</body>
+</html>
